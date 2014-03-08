@@ -32,7 +32,7 @@ when 'debian'
   if debian_before_squeeze? || ubuntu_before_lucid?
     default['mariadb']['client']['packages'] = %w{mariadb-client libmariadbclient15-dev}
   else
-    default['mariadb']['client']['packages'] = %w{mariadb-client libmariadbclient-dev}
+    default['mariadb']['client']['packages'] = %w{mariadb-client-5.5 libmariadbclient-dev}
   end
 when 'freebsd'
   default['mariadb']['client']['packages'] = %w{mariadb55-client}
