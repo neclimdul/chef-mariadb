@@ -81,10 +81,6 @@ directory node['mariadb']['data_dir'] do
   recursive true
 end
 
-template '/etc/init/mysql.conf' do
-  source 'init-mysql.conf.erb'
-end
-
 template '/etc/apparmor.d/usr.sbin.mysqld' do
   source 'usr.sbin.mysqld.erb'
   action :create
