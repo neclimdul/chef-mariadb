@@ -4,12 +4,12 @@
 
 # Import the sql dump file:
 
-mysql -u root -p<%= node['mariadb']['server_root_password'] %> < dump.sql
+mysql -u root -p'<%= node['mariadb']['server_root_password'] %>' < dump.sql
 
 # Unlock the tables on the master
 
 # To initiate the replication, run the following:
-mysql -u root -p<%= node['mariadb']['server_root_password'] %>
+mysql -u root -p'<%= node['mariadb']['server_root_password'] %>'
 
 CHANGE MASTER TO
   MASTER_HOST='<%= node['mariadb']['replication']['master'] %>',

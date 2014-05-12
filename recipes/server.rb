@@ -59,6 +59,17 @@ unless node['mariadb']['replication']['master'].nil? && node['mariadb']['replica
   end
 end
 
+case node['platform_family']
+when 'rhel', 'fedora'
+  include_recipe 'mariadb::_server_rhel'
+when 'debian'
+  include_recipe 'mariadb::_server_debian'
+when 'mac_os_x'
+  include_recipe 'mariadb::_server_mac_os_x'
+when 'windows'
+  include_recipe 'mariadb::_server_windows'
+end
+
 template "#{node['mariadb']['data_dir']}/replication_master_script" do
   source 'replication_master_script.erb'
   owner 'root' unless platform? 'windows'
@@ -73,15 +84,4 @@ template "#{node['mariadb']['data_dir']}/replication_slave_script" do
   group node['mariadb']['root_group'] unless platform? 'windows'
   mode '0600'
   only_if { node['mariadb']['replication']['slave'] == true }
-end
-
-case node['platform_family']
-when 'rhel', 'fedora'
-  include_recipe 'mariadb::_server_rhel'
-when 'debian'
-  include_recipe 'mariadb::_server_debian'
-when 'mac_os_x'
-  include_recipe 'mariadb::_server_mac_os_x'
-when 'windows'
-  include_recipe 'mariadb::_server_windows'
 end
