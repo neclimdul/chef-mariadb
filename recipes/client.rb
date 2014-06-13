@@ -21,7 +21,9 @@
 # to debian_before_squeeze? and ubuntu_before_lucid?
 ::Chef::Recipe.send(:include, Opscode::Mysql::Helpers)
 
-include_recipe 'mariadb::mariadb_repo' unless node['mariadb']['disable_repo'] == true
+unless node['mariadb']['disable_repo'] == true
+  include_recipe 'mariadb::mariadb_repo'
+end
 
 # On RHEL platforms, yum isn't happy to have MariaDB and mysql-libs coexisting
 package 'mysql-libs' do
