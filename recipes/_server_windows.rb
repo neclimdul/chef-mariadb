@@ -10,7 +10,7 @@ end
 
 remote_file package_file do
   source node['mariadb']['windows']['url']
-  not_if { ::File.exists?(package_file) }
+  not_if { ::File.exist?(package_file) }
 end
 
 windows_package node['mariadb']['windows']['packages'].first do
