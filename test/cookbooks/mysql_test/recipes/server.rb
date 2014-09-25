@@ -6,9 +6,9 @@ include_recipe 'mariadb::ruby'
 include_recupe 'mariadb::server'
 
 mysql_connection = {
-  :host     => 'localhost',
-  :username => 'root',
-  :password => node['mariadb']['server_root_password']
+  host: 'localhost',
+  username: 'root',
+  password: node['mariadb']['server_root_password']
 }
 
 mysql_database node['mysql_test']['database'] do

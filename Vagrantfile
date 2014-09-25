@@ -70,10 +70,10 @@ Vagrant.configure('2') do |config|
   config.vm.provision :chef_solo do |chef|
     chef.log_level = :debug
     chef.json = {
-      :mariadb => {
-        :server_root_password => 'ilovestrongpasswords',
-        :server_debian_password => 'ilovestrongpasswords',
-        :server_repl_password => 'ilovestrongpasswords'
+      mariadb: {
+        server_root_password: 'ilovestrongpasswords',
+        server_debian_password: 'ilovestrongpasswords',
+        server_repl_password: 'ilovestrongpasswords'
       }
     }
 

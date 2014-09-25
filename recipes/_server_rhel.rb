@@ -75,6 +75,6 @@ end
 
 service 'mysql' do
   service_name node['mariadb']['server']['service_name']
-  supports     :status => true, :restart => true, :reload => true
+  supports     status: true, restart: true, reload: true
   action       [:enable, :start]
 end

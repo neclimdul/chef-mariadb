@@ -90,7 +90,7 @@ end
 service 'apparmor-mysql' do
   service_name 'apparmor'
   action :nothing
-  supports :reload => true
+  supports reload: true
 end
 
 template '/etc/mysql/my.cnf' do
@@ -119,6 +119,6 @@ end
 
 service 'mysql' do
   service_name 'mysql'
-  supports     :status => true, :restart => true, :reload => true
+  supports     status: true, restart: true, reload: true
   action       [:enable, :start]
 end
