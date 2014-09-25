@@ -7,7 +7,7 @@ node['mariadb']['server']['packages'].each do |name|
 end
 
 #----
-node['mariadb']['server']['directories'].each do |key, value|
+node['mariadb']['server']['directories'].each do |_key, value|
   directory value do
     owner     'mysql'
     group     'mysql'

@@ -42,7 +42,7 @@ else
 end
 
 unless node['mariadb']['replication']['master'].nil? && node['mariadb']['replication']['slave'].nil?
-  missing_attrs = %w(user).select { |attr| node['mariadb']['replication'][attr].nil? }.map { |attr| "node['mariadb']['replication']" }
+  missing_attrs = %w(user).select { |attr| node['mariadb']['replication'][attr].nil? }.map { |_attr| "node['mariadb']['replication']" }
 
   unless missing_attrs.empty?
     Chef::Application.fatal!('You must set for the replication')
