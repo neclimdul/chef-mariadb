@@ -26,7 +26,7 @@ template 'my.ini' do
 end
 
 execute 'install mysql service' do
-  command %Q("#{node['mariadb']['windows']['bin_dir']}\\mysqld.exe" --install "#{node['mariadb']['server']['service_name']}" --defaults-file="#{node['mariadb']['windows']['bin_dir']}\\my.ini")
+  command %("#{node['mariadb']['windows']['bin_dir']}\\mysqld.exe" --install "#{node['mariadb']['server']['service_name']}" --defaults-file="#{node['mariadb']['windows']['bin_dir']}\\my.ini")
   not_if { ::Win32::Service.exists?(node['mariadb']['server']['service_name']) }
 end
 
@@ -36,7 +36,7 @@ service 'mariadb' do
 end
 
 execute 'assign-root-password' do
-  command %Q("#{node['mariadb']['windows']['mysqladmin_bin']}" -u root password #{node['mariadb']['server_root_password']})
+  command %("#{node['mariadb']['windows']['mysqladmin_bin']}" -u root password #{node['mariadb']['server_root_password']})
   action :run
   # only_if %Q["#{node['mariadb']['windows']['mysql_bin']}" -u root -e 'show databases;'] # unreliable due to CHEF-4783; always returns 0 when run in Chef
   not_if { node['mariadb']['root_password_set'] }

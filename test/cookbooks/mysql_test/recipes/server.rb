@@ -28,7 +28,7 @@ end
 mysql_conn_args = "--user=root --password='#{node['mariadb']['server_root_password']}'"
 
 execute 'create-sample-data' do
-  command %Q{mysql #{mysql_conn_args} #{node['mysql_test']['database']} <<EOF
+  command %{mysql #{mysql_conn_args} #{node['mysql_test']['database']} <<EOF
     CREATE TABLE tv_chef (name VARCHAR(32) PRIMARY KEY);
     INSERT INTO tv_chef (name) VALUES ('Alison Holst');
     INSERT INTO tv_chef (name) VALUES ('Nigella Lawson');
