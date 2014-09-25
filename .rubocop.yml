@@ -15,3 +15,5 @@ MethodLength:
 
 SingleSpaceBeforeFirstArg:
   Enabled: false
+CommentIndentation:
+  Enabled: false
