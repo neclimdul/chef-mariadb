@@ -47,7 +47,7 @@ when 'rhel'
   pversion = node['platform_version'].split('.').first
   platform = node['platform']
 
-  if platform == 'centos' and pversion == '7'
+  if platform == 'centos' && pversion == '7'
     platform = 'fedora'
     pversion = '20'
   end
