@@ -38,7 +38,11 @@ module Opscode
       def install_grants_cmd
         str = '/usr/bin/mysql'
         str << ' -u root '
-        node['mariadb']['server_root_password'].empty? ? str << ' < /etc/mysql_grants.sql' : str << " -p'#{node['mariadb']['server_root_password']}' < /etc/mysql_grants.sql"
+        str << if node['mariadb']['server_root_password'].empty?
+                 ' < /etc/mysql_grants.sql'
+               else
+                 " -p'#{node['mariadb']['server_root_password']}' < /etc/mysql_grants.sql"
+               end
       end
     end
   end

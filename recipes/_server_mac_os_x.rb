@@ -23,10 +23,10 @@ end
 #----
 
 execute 'mysql-install-db' do
-  command     "mysql_install_db --verbose --user=`whoami` --basedir=\"$(brew --prefix mysql)\" --datadir=#{node['mariadb']['data_dir']} --tmpdir=/tmp"
+  command "mysql_install_db --verbose --user=`whoami` --basedir=\"$(brew --prefix mysql)\" --datadir=#{node['mariadb']['data_dir']} --tmpdir=/tmp"
   environment('TMPDIR' => nil)
-  action      :run
-  creates     "#{node['mariadb']['data_dir']}/mysql"
+  action :run
+  creates "#{node['mariadb']['data_dir']}/mysql"
 end
 
 # set the root password for situations that don't support pre-seeding.

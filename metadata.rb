@@ -26,10 +26,10 @@ supports 'scientific'
 supports 'suse'
 supports 'windows'
 
-depends 'yum',              '~> 3.0'
+depends 'yum', '~> 3.0'
 depends 'yum-epel'
 
-depends 'apt',              '~> 2.0'
+depends 'apt', '~> 2.0'
 
-depends 'openssl',          '~> 2.0'
-depends 'build-essential',  '~> 2.0'
+depends 'openssl', '~> 2.0'
+depends 'build-essential', '~> 2.0'

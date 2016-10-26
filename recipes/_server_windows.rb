@@ -58,7 +58,10 @@ template grants_path do
   notifies :run, 'execute[mysql-install-privileges]', :immediately
 end
 
+root_password_option = ''
+root_password_option = "-p \"#{node['mariadb']['server_root_password']}\"" unless node['mariadb']['server_root_password'].empty?
+
 execute 'mysql-install-privileges' do
-  command "\"#{node['mariadb']['windows']['mysql_bin']}\" -u root #{node['mariadb']['server_root_password'].empty? ? '' : '-p' }\"#{node['mariadb']['server_root_password']}\" < \"#{grants_path}\""
+  command "\"#{node['mariadb']['windows']['mysql_bin']}\" -u root #{root_password_option} < \"#{grants_path}\""
   action :nothing
 end

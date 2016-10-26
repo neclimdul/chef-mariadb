@@ -26,7 +26,7 @@ when 'rhel'
   default['mariadb']['server']['socket']               = '/var/lib/mysql/mysql.sock'
   default['mariadb']['server']['grants_path']          = '/etc/mysql_grants.sql'
   default['mariadb']['server']['old_passwords']        = 1
-  default['mariadb']['server']['service_name']        = 'mysql'
+  default['mariadb']['server']['service_name']         = 'mysql'
 
   # RHEL/CentOS mysql package does not support this option.
   default['mariadb']['tunable']['innodb_adaptive_flushing'] = false

@@ -55,7 +55,7 @@ unless node['mariadb']['replication']['master'].nil? && node['mariadb']['replica
   if node['mariadb']['tunable']['server_id'].nil?
     node.default['mariadb']['tunable']['log_bin'] = node['hostname'] if node['mariadb']['tunable']['log_bin'].nil?
     node.default['mariadb']['tunable']['binlog_format'] = 'MIXED'
-    node.default['mariadb']['tunable']['server_id'] = (node['macaddress'].gsub(/:/, '').to_i(16) % (2**32 - 1)).to_s(10)
+    node.default['mariadb']['tunable']['server_id'] = (node['macaddress'].delete(/:/).to_i(16) % (2**32 - 1)).to_s(10)
   end
 end
 
