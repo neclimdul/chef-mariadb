@@ -78,7 +78,6 @@ else
   end
 end
 
-
 template "#{node['mariadb']['data_dir']}/replication_master_script" do
   source 'replication_master_script.erb'
   owner 'root' unless platform? 'windows'

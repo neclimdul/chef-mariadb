@@ -33,7 +33,7 @@ node['mariadb']['server']['directories'].each do |_key, value|
     mode      '0775'
     action    :create
     recursive true
-  end
+  end unless value == node['mariadb']['data_dir']
 end
 
 #----
