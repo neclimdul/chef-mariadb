@@ -1,6 +1,8 @@
 name              'mariadb'
-maintainer        'Joe Rocklin'
-maintainer_email  'joe.rocklin@gmail.com'
+maintainer        'James Gilliland'
+maintainer_email  'neclimdul@gmail.com'
+issues_url        'https://github.com/neclimdul/chef-mariadb/issues'
+source_url        'https://github.com/neclimdul/chef-mariadb'
 license           'Apache 2.0'
 description       'Installs and configures mariadb for client or server'
 long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
