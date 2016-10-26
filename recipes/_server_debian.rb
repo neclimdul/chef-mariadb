@@ -1,12 +1,8 @@
 #----
 # Set up preseeding data for debian packages
 #---
-directory '/var/cache/local/preseeding' do
-  owner 'root'
-  group 'root'
-  mode '0755'
-  recursive true
-end
+
+include_recipe 'apt'
 
 template '/var/cache/local/preseeding/mysql-server.seed' do
   source 'mysql-server.seed.erb'
