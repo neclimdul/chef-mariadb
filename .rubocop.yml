@@ -13,7 +13,8 @@ LineLength:
 MethodLength:
   Max: 30
 
-SingleSpaceBeforeFirstArg:
-  Enabled: false
+Style:
+  SingleSpaceBeforeFirstArg:
+    Enabled: false
 CommentIndentation:
   Enabled: false
