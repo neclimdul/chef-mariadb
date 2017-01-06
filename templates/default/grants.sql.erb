@@ -39,5 +39,5 @@ SET PASSWORD FOR 'root'@'localhost' = PASSWORD('<%= node['mariadb']['server_root
 
 # allow root to connect from a remote network if root_network_acl is not nil
 <% if node['mariadb']['root_network_acl'] -%>
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'<%= node['mariadb']['root_network_acl'] %>' IDENTIFIED BY '<%= node['mariadb']['server_root_password'] %>'
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'<%= node['mariadb']['root_network_acl'] %>' IDENTIFIED BY '<%= node['mariadb']['server_root_password'] %>';
 <% end -%>
