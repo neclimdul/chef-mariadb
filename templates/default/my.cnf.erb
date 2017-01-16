@@ -247,6 +247,9 @@ innodb_status_file
 <%- if node['mariadb']['tunable']['innodb_file_per_table'] %>
 innodb_file_per_table
 <%- end %>
+<%- if node['mariadb']['tunable']['innodb_file_format'] %>
+innodb_file_format = <%= node['mariadb']['tunable']['innodb_file_format'] %>
+<%- end %>
 innodb_table_locks              = <%= node['mariadb']['tunable']['innodb_table_locks'] %>
 innodb_lock_wait_timeout        = <%= node['mariadb']['tunable']['innodb_lock_wait_timeout'] %>
 innodb_thread_concurrency       = <%= node['mariadb']['tunable']['innodb_thread_concurrency'] %>
