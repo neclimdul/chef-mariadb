@@ -261,7 +261,9 @@ skip-innodb-doublewrite
 
 innodb_buffer_pool_size = <%= node['mariadb']['tunable']['innodb_buffer_pool_size'] %>
 innodb_log_file_size    = <%= node['mariadb']['tunable']['innodb_log_file_size'] %>
+<%- if node['mariadb']['version'].to_f < 10.2 %>
 innodb_additional_mem_pool_size = <%= node['mariadb']['tunable']['innodb_additional_mem_pool_size'] %>
+<%- end %>
 innodb_data_file_path   = <%= node['mariadb']['tunable']['innodb_data_file_path'] %>
 innodb_flush_log_at_trx_commit = <%= node['mariadb']['tunable']['innodb_flush_log_at_trx_commit'] %>
 <%- if node['mariadb']['tunable']['innodb_flush_method'] %>
