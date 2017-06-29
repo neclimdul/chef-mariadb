@@ -4,14 +4,14 @@ driver_config:
   require_chef_omnibus: true
 
 platforms:
-- name: centos-5.10
-- name: centos-6.5
-- name: centos-7.0
-- name: ubuntu-10.04
+- name: centos-6.9
+- name: centos-7.3
 - name: ubuntu-12.04
 - name: ubuntu-14.04
+- name: ubuntu-16.04
 #- name: debian-6.0.10
-- name: debian-7.6
+- name: debian-7.11
+- name: debian-8.6
 
 suites:
 - name: clients-5.5
@@ -20,6 +20,8 @@ suites:
   attributes:
     mariadb:
       version: 5.5
+  excludes:
+    - ubuntu-16.04
 - name: servers-5.5
   run_list:
     - recipe[mariadb::server]
@@ -29,6 +31,8 @@ suites:
       server_debian_password: 'ilovestrongpasswords'
       server_root_password:   'ilovestrongpasswords'
       server_repl_password:   'ilovestrongpasswords'
+  excludes:
+    - ubuntu-16.04
 - name: clients-10.0
   run_list:
     - recipe[mariadb::client]

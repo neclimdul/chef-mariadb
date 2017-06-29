@@ -19,7 +19,7 @@
 
 # Probably driven from wrapper cookbooks, environments, or roles.
 # # Keep in this namespace for backwards compat
-default['mariadb']['bind_address']              = node.attribute?('cloud') ? node['cloud']['local_ipv4'] : node['ipaddress']
+default['mariadb']['bind_address']              = node.attribute?('cloud') && !node['cloud'].nil? ? node['cloud']['local_ipv4'] : node['ipaddress']
 default['mariadb']['port']                      = 3306
 default['mariadb']['nice']                      = 0
 

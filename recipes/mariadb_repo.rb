@@ -28,15 +28,21 @@ case node['platform_family']
 when 'debian'
   include_recipe 'apt'
 
+  case node['platform_version']
+  when '12.04', '14.04'
+    key = '0xcbcb082a1bb943db'
+  else
+    key = '0xF1656F24C74CD1D8'
+  end
+
   apt_repository 'mariadb' do
     uri "http://ftp.osuosl.org/pub/mariadb/repo/#{node['mariadb']['version']}/#{node['platform']}"
     distribution node['lsb']['codename']
     components ['main']
     keyserver 'hkp://keyserver.ubuntu.com:80'
-    key '0xcbcb082a1bb943db'
+    key key
     action :add
   end
-
 when 'rhel'
   include_recipe 'yum'
 
