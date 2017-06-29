@@ -48,3 +48,33 @@ suites:
       server_debian_password: 'ilovestrongpasswords'
       server_root_password:   'ilovestrongpasswords'
       server_repl_password:   'ilovestrongpasswords'
+- name: clients-10.1
+  run_list:
+    - recipe[mariadb::client]
+  attributes:
+    mariadb:
+      version: 10.1
+- name: servers-10.1
+  run_list:
+    - recipe[mariadb::server]
+  attributes:
+    mariadb:
+      version: 10.1
+      server_debian_password: 'ilovestrongpasswords'
+      server_root_password:   'ilovestrongpasswords'
+      server_repl_password:   'ilovestrongpasswords'
+- name: clients-10.2
+  run_list:
+    - recipe[mariadb::client]
+  attributes:
+    mariadb:
+      version: 10.2
+- name: servers-10.2
+  run_list:
+    - recipe[mariadb::server]
+  attributes:
+    mariadb:
+      version: 10.2
+      server_debian_password: 'ilovestrongpasswords'
+      server_root_password:   'ilovestrongpasswords'
+      server_repl_password:   'ilovestrongpasswords'
