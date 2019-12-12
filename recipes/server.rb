@@ -35,9 +35,9 @@ if Chef::Config[:solo]
   end
 else
   # generate all passwords
-  node.set_unless['mariadb']['server_debian_password'] = secure_password
-  node.set_unless['mariadb']['server_root_password']   = secure_password
-  node.set_unless['mariadb']['server_repl_password']   = secure_password
+  node.default_unless['mariadb']['server_debian_password'] = secure_password
+  node.default_unless['mariadb']['server_root_password']   = secure_password
+  node.default_unless['mariadb']['server_repl_password']   = secure_password
   node.save
 end
 
